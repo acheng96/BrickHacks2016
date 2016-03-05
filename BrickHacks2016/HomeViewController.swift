@@ -11,7 +11,14 @@ import UIKit
 class HomeViewController: UIViewController {
 
     // Outlets
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var actionLabel: UILabel!
+    @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var goBackButton: UIButton!
+    
+    @IBAction func goBackButtonPressed(sender: UIButton) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
     
     // Variables
     var currentPose: TLMPose!
@@ -23,11 +30,17 @@ class HomeViewController: UIViewController {
         
         if TLMHub.sharedHub().myoDevices().count > 0 {
             if let myo = TLMHub.sharedHub().myoDevices()[0] as? TLMMyo {
-                label.text = myo.name
+                actionLabel.text = myo.name
             }
         }
-        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
         setUpNotifications()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     // MARK: - Initialization
@@ -86,7 +99,7 @@ class HomeViewController: UIViewController {
     }
     
     func didUnsyncArm(notification: NSNotification) {
-        showAlertView("Arm synced", message: "")
+        showAlertView("Arm synced", message: "Please perform the sync gesture.")
     }
     
     func didUnlockDevice(notification: NSNotification) {
@@ -98,11 +111,25 @@ class HomeViewController: UIViewController {
     }
     
     func didReceiveOrientationEvent(notification: NSNotification) {
-        //        print("received orientation event")
+        let orientationEvent = notification.userInfo![kTLMKeyOrientationEvent]
+        
+        // Create Euler angles from the orientation quaternion
+        let angles = TLMEulerAngles(quaternion: orientationEvent!.quaternion)
+        
+        // Apply a rotation and perspective transformation based on the pitch, yaw, and roll
+        let rotationAndPerspectiveTransform = CATransform3DConcat(CATransform3DConcat(CATransform3DRotate(CATransform3DIdentity, CGFloat(angles.pitch.radians), -1.0, 0.0, 0.0), CATransform3DRotate(CATransform3DIdentity, CGFloat(angles.yaw.radians), 0.0, 1.0, 0.0)), CATransform3DRotate(CATransform3DIdentity, CGFloat(angles.roll.radians), 0.0, 0.0, -1.0))
+
+        // Apply the rotation and perspective transform to label
+        imageView.layer.transform = rotationAndPerspectiveTransform
     }
     
     func didReceiveAccelerometerEvent(notification: NSNotification) {
-        //        print("received acceleromter event")
+        let accelerometerEvent = notification.userInfo![kTLMKeyAccelerometerEvent]
+        let accelerationVector = accelerometerEvent!.vector
+        let magnitude = TLMVector3Length(accelerationVector)
+
+        // Update the progress bar based on acceleration vector magnitude.
+        progressView.progress = magnitude / 8
     }
     
     func didReceivePoseChange(notification: NSNotification) {
@@ -112,30 +139,24 @@ class HomeViewController: UIViewController {
             case .Unknown: break
             case .Rest: break
             case .DoubleTap:
-                label.text = "Double Tap"
-                break
+                actionLabel.text = "Double Tap"
             case .Fist:
-                label.text = "Fist"
-                break
+                actionLabel.text = "Fist"
             case .WaveIn:
-                label.text = "Wave In"
-                break
+                actionLabel.text = "Wave In"
             case .WaveOut:
-                label.text = "Wave Out"
-                break
+                actionLabel.text = "Wave Out"
             case .FingersSpread:
-                label.text = "Fingers Spread"
-                break
+                actionLabel.text = "Fingers Spread"
         }
         
         // Unlock the Myo whenever we receive a pose
         if (currentPose.type == .Unknown || currentPose.type == .Rest) {
-            currentPose.myo?.unlockWithType(.Timed) // Lock Myo after a short period
+//            currentPose.myo?.unlockWithType(.Timed) // Lock Myo after a short period
         } else {
             currentPose.myo?.unlockWithType(.Hold) // Keeps the Myo unlocked until specified.
             currentPose.myo?.indicateUserAction() // Indicate that a user action has been performed.
         }
-        
     }
 
 }

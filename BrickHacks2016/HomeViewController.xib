@@ -3,11 +3,15 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="BrickHacks2016" customModuleProvider="target">
             <connections>
-                <outlet property="label" destination="aDq-fi-SAm" id="sWX-vj-59F"/>
+                <outlet property="actionLabel" destination="ZFR-Bd-fTe" id="Rq0-C2-buw"/>
+                <outlet property="goBackButton" destination="NNz-Dy-Hn3" id="gDm-jQ-rM0"/>
+                <outlet property="imageView" destination="NOs-aC-IMs" id="OZC-J4-fV6"/>
+                <outlet property="progressView" destination="HiM-cg-Eep" id="pnO-zP-V7a"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,18 +20,48 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aDq-fi-SAm">
-                    <rect key="frame" x="279" y="290" width="42" height="20.5"/>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="HiM-cg-Eep">
+                    <rect key="frame" x="200" y="173" width="200" height="2"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="qk6-ar-eu2"/>
+                    </constraints>
+                </progressView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NNz-Dy-Hn3">
+                    <rect key="frame" x="271" y="425" width="58" height="125"/>
+                    <state key="normal" title="Go Back"/>
+                    <connections>
+                        <action selector="goBackButtonPressed:" destination="-1" eventType="touchUpInside" id="ijR-XV-Yhc"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Action Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZFR-Bd-fTe">
+                    <rect key="frame" x="252" y="132.5" width="95" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="boxing-glove" translatesAutoresizingMaskIntoConstraints="NO" id="NOs-aC-IMs">
+                    <rect key="frame" x="225" y="225" width="150" height="150"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="NOs-aC-IMs" secondAttribute="height" id="VY0-F2-bs7"/>
+                        <constraint firstAttribute="height" constant="150" id="ymQ-xa-kiI"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="aDq-fi-SAm" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="c4W-ho-asB"/>
-                <constraint firstItem="aDq-fi-SAm" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="uoP-Mw-yZq"/>
+                <constraint firstItem="NOs-aC-IMs" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="3ZH-Du-zeg"/>
+                <constraint firstItem="NOs-aC-IMs" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="6QO-s0-7D9"/>
+                <constraint firstItem="ZFR-Bd-fTe" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="LWk-Cr-ObE"/>
+                <constraint firstItem="HiM-cg-Eep" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="U9p-76-qG5"/>
+                <constraint firstItem="NNz-Dy-Hn3" firstAttribute="top" secondItem="NOs-aC-IMs" secondAttribute="bottom" constant="50" id="W9L-na-wd7"/>
+                <constraint firstItem="NOs-aC-IMs" firstAttribute="top" secondItem="HiM-cg-Eep" secondAttribute="bottom" constant="50" id="XU3-Dq-Yfm"/>
+                <constraint firstItem="HiM-cg-Eep" firstAttribute="top" secondItem="ZFR-Bd-fTe" secondAttribute="bottom" constant="20" id="YwC-Iw-6D1"/>
+                <constraint firstAttribute="bottom" secondItem="NNz-Dy-Hn3" secondAttribute="bottom" constant="50" id="fPF-GY-kup"/>
+                <constraint firstItem="NNz-Dy-Hn3" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="seS-d0-Vs1"/>
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="boxing-glove" width="300" height="282"/>
+    </resources>
 </document>

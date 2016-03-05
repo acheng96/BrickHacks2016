@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         TLMHub.sharedHub() // Set up Myo shared hub
         TLMHub.sharedHub().shouldNotifyInBackground = true // Enable events in the background
         TLMHub.sharedHub().shouldSendUsageData = false // Prevent data from being sent to Thalmic Labs
+        TLMHub.sharedHub().lockingPolicy = .None
         
         setUpNotifications()
         
@@ -34,8 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func toggleRootVC() {
         if TLMHub.sharedHub().myoDevices().count > 0 {
             print("connected to myo device")
-            let homeVC = HomeViewController(nibName: "HomeViewController", bundle: nil)
-            window?.rootViewController = homeVC
+            let startVC = StartViewController(nibName: "StartViewController", bundle: nil)
+            window?.rootViewController = startVC
         } else {
             print("not connected to myo device")
             // Allow user to connect Myo armband if not already connected
@@ -53,34 +54,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Posted whenever a TLMMyo disconnects
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "didDisconnectDevice:", name: TLMHubDidDisconnectDeviceNotification, object: nil)
-        
-//        // Posted whenever the user does a successful Sync Gesture.
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didSyncArm:", name: TLMMyoDidReceiveArmSyncEventNotification, object: nil)
-//        
-//        // Posted whenever Myo loses sync with an arm (when Myo is taken off, or moved enough on the user's arm).
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didUnsyncArm:", name: TLMMyoDidReceiveArmUnsyncEventNotification, object: nil)
-//        
-//        // Posted whenever Myo is unlocked and the application uses TLMLockingPolicyStandard.
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didUnlockDevice:", name: TLMMyoDidReceiveUnlockEventNotification, object: nil)
-//        
-//        // Posted whenever Myo is locked and the application uses TLMLockingPolicyStandard.
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didLockDevice:", name: TLMMyoDidReceiveLockEventNotification, object: nil)
-//        
-//        // Posted when a new orientation event is available from a TLMMyo. Notifications are posted at a rate of 50 Hz.
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didReceiveOrientationEvent:", name: TLMMyoDidReceiveOrientationEventNotification, object: nil)
-//        
-//        // Posted when a new accelerometer event is available from a TLMMyo. Notifications are posted at a rate of 50 Hz.
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didReceiveAccelerometerEvent:", name: TLMMyoDidReceiveAccelerometerEventNotification, object: nil)
-//        
-//        // Posted when a new pose is available from a TLMMyo.
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didReceivePoseChange:", name: TLMMyoDidReceivePoseChangedNotification, object: nil)
     }
     
     func didConnectDevice(notification: NSNotification) {
         if TLMHub.sharedHub().myoDevices().count > 0 {
             if let _ = TLMHub.sharedHub().myoDevices()[0] as? TLMMyo {
-                let homeVC = HomeViewController(nibName: "HomeViewController", bundle: nil)
-                window?.rootViewController = homeVC
+                print("connected to myo device")
+                let startVC = StartViewController(nibName: "StartViewController", bundle: nil)
+                window?.rootViewController = startVC
             }
         }
     }
@@ -88,34 +69,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func didDisconnectDevice(notification: NSNotification) {
         print("myo disconnected")
     }
-    
-//    func didSyncArm(notification: NSNotification) {
-//        print("myo synced")
-//    }
-//    
-//    func didUnsyncArm(notification: NSNotification) {
-//        print("myo unsynced")
-//    }
-//    
-//    func didUnlockDevice(notification: NSNotification) {
-////        print("device unlocked")
-//    }
-//    
-//    func didLockDevice(notification: NSNotification) {
-////        print("device locked")
-//    }
-//    
-//    func didReceiveOrientationEvent(notification: NSNotification) {
-////        print("received orientation event")
-//    }
-//    
-//    func didReceiveAccelerometerEvent(notification: NSNotification) {
-////        print("received acceleromter event")
-//    }
-//    
-//    func didReceivePoseChange(notification: NSNotification) {
-////        print("received pose change")
-//    }
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
