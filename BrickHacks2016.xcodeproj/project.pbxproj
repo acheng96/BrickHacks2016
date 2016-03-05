@@ -13,8 +13,6 @@
 		D1509D311C8B76FA00360FA8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1509D2F1C8B76FA00360FA8 /* HomeViewController.swift */; };
 		D1509D321C8B76FA00360FA8 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1509D301C8B76FA00360FA8 /* HomeViewController.xib */; };
 		D1DABAF71C8B5DF700E3E475 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DABAF61C8B5DF700E3E475 /* AppDelegate.swift */; };
-		D1DABAF91C8B5DF700E3E475 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DABAF81C8B5DF700E3E475 /* ViewController.swift */; };
-		D1DABAFC1C8B5DF700E3E475 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1DABAFA1C8B5DF700E3E475 /* Main.storyboard */; };
 		D1DABAFE1C8B5DF700E3E475 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1DABAFD1C8B5DF700E3E475 /* Assets.xcassets */; };
 		D1DABB011C8B5DF700E3E475 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1DABAFF1C8B5DF700E3E475 /* LaunchScreen.storyboard */; };
 		D1DABB0C1C8B5DF700E3E475 /* BrickHacks2016Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DABB0B1C8B5DF700E3E475 /* BrickHacks2016Tests.swift */; };
@@ -47,8 +45,6 @@
 		D1509D301C8B76FA00360FA8 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		D1DABAF31C8B5DF700E3E475 /* BrickHacks2016.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrickHacks2016.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1DABAF61C8B5DF700E3E475 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D1DABAF81C8B5DF700E3E475 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D1DABAFB1C8B5DF700E3E475 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D1DABAFD1C8B5DF700E3E475 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D1DABB001C8B5DF700E3E475 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D1DABB021C8B5DF700E3E475 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -144,9 +140,7 @@
 			children = (
 				D1509D261C8B6C5600360FA8 /* BrickHacks2016-Bridging-Header.h */,
 				D1DABAF61C8B5DF700E3E475 /* AppDelegate.swift */,
-				D1DABAF81C8B5DF700E3E475 /* ViewController.swift */,
 				D1509D331C8B76FE00360FA8 /* View Controllers */,
-				D1DABAFA1C8B5DF700E3E475 /* Main.storyboard */,
 				D1509D241C8B6B7800360FA8 /* Resources */,
 			);
 			path = BrickHacks2016;
@@ -281,7 +275,6 @@
 			files = (
 				D1DABB011C8B5DF700E3E475 /* LaunchScreen.storyboard in Resources */,
 				D1DABAFE1C8B5DF700E3E475 /* Assets.xcassets in Resources */,
-				D1DABAFC1C8B5DF700E3E475 /* Main.storyboard in Resources */,
 				D1509D321C8B76FA00360FA8 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,7 +300,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1DABAF91C8B5DF700E3E475 /* ViewController.swift in Sources */,
 				D1DABAF71C8B5DF700E3E475 /* AppDelegate.swift in Sources */,
 				D1509D311C8B76FA00360FA8 /* HomeViewController.swift in Sources */,
 			);
@@ -345,14 +337,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D1DABAFA1C8B5DF700E3E475 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D1DABAFB1C8B5DF700E3E475 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D1DABAFF1C8B5DF700E3E475 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

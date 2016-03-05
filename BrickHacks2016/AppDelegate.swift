@@ -20,32 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         TLMHub.sharedHub().shouldNotifyInBackground = true // Enable events in the background
         TLMHub.sharedHub().shouldSendUsageData = false // Prevent data from being sent to Thalmic Labs
         
-        // Posted whenever a TLMMyo connects
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didConnectDevice:", name: TLMHubDidConnectDeviceNotification, object: nil)
-        
-        // Posted whenever a TLMMyo disconnects
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didDisconnectDevice:", name: TLMHubDidDisconnectDeviceNotification, object: nil)
-
-        // Posted whenever the user does a successful Sync Gesture.
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didSyncArm:", name: TLMMyoDidReceiveArmSyncEventNotification, object: nil)
-        
-        // Posted whenever Myo loses sync with an arm (when Myo is taken off, or moved enough on the user's arm).
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didUnsyncArm:", name: TLMMyoDidReceiveArmUnsyncEventNotification, object: nil)
-        
-        // Posted whenever Myo is unlocked and the application uses TLMLockingPolicyStandard.
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didUnlockDevice:", name: TLMMyoDidReceiveUnlockEventNotification, object: nil)
-        
-        // Posted whenever Myo is locked and the application uses TLMLockingPolicyStandard.
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didLockDevice:", name: TLMMyoDidReceiveLockEventNotification, object: nil)
-        
-        // Posted when a new orientation event is available from a TLMMyo. Notifications are posted at a rate of 50 Hz.
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didReceiveOrientationEvent:", name: TLMMyoDidReceiveOrientationEventNotification, object: nil)
-        
-        // Posted when a new accelerometer event is available from a TLMMyo. Notifications are posted at a rate of 50 Hz.
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didReceiveAccelerometerEvent:", name: TLMMyoDidReceiveAccelerometerEventNotification, object: nil)
-        
-        // Posted when a new pose is available from a TLMMyo.
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didReceivePoseChange:", name: TLMMyoDidReceivePoseChangedNotification, object: nil)
+        setUpNotifications()
         
         // Set up main window
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
@@ -72,6 +47,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: - NSNotification
     
+    func setUpNotifications() {
+        // Posted whenever a TLMMyo connects
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didConnectDevice:", name: TLMHubDidConnectDeviceNotification, object: nil)
+        
+        // Posted whenever a TLMMyo disconnects
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didDisconnectDevice:", name: TLMHubDidDisconnectDeviceNotification, object: nil)
+        
+//        // Posted whenever the user does a successful Sync Gesture.
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didSyncArm:", name: TLMMyoDidReceiveArmSyncEventNotification, object: nil)
+//        
+//        // Posted whenever Myo loses sync with an arm (when Myo is taken off, or moved enough on the user's arm).
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didUnsyncArm:", name: TLMMyoDidReceiveArmUnsyncEventNotification, object: nil)
+//        
+//        // Posted whenever Myo is unlocked and the application uses TLMLockingPolicyStandard.
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didUnlockDevice:", name: TLMMyoDidReceiveUnlockEventNotification, object: nil)
+//        
+//        // Posted whenever Myo is locked and the application uses TLMLockingPolicyStandard.
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didLockDevice:", name: TLMMyoDidReceiveLockEventNotification, object: nil)
+//        
+//        // Posted when a new orientation event is available from a TLMMyo. Notifications are posted at a rate of 50 Hz.
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didReceiveOrientationEvent:", name: TLMMyoDidReceiveOrientationEventNotification, object: nil)
+//        
+//        // Posted when a new accelerometer event is available from a TLMMyo. Notifications are posted at a rate of 50 Hz.
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didReceiveAccelerometerEvent:", name: TLMMyoDidReceiveAccelerometerEventNotification, object: nil)
+//        
+//        // Posted when a new pose is available from a TLMMyo.
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didReceivePoseChange:", name: TLMMyoDidReceivePoseChangedNotification, object: nil)
+    }
+    
     func didConnectDevice(notification: NSNotification) {
         if TLMHub.sharedHub().myoDevices().count > 0 {
             if let _ = TLMHub.sharedHub().myoDevices()[0] as? TLMMyo {
@@ -85,33 +89,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("myo disconnected")
     }
     
-    func didSyncArm(notification: NSNotification) {
-        print("myo synced")
-    }
-    
-    func didUnsyncArm(notification: NSNotification) {
-        print("myo unsynced")
-    }
-    
-    func didUnlockDevice(notification: NSNotification) {
-//        print("device unlocked")
-    }
-    
-    func didLockDevice(notification: NSNotification) {
-//        print("device locked")
-    }
-    
-    func didReceiveOrientationEvent(notification: NSNotification) {
-//        print("received orientation event")
-    }
-    
-    func didReceiveAccelerometerEvent(notification: NSNotification) {
-//        print("received acceleromter event")
-    }
-    
-    func didReceivePoseChange(notification: NSNotification) {
-//        print("received pose change")
-    }
+//    func didSyncArm(notification: NSNotification) {
+//        print("myo synced")
+//    }
+//    
+//    func didUnsyncArm(notification: NSNotification) {
+//        print("myo unsynced")
+//    }
+//    
+//    func didUnlockDevice(notification: NSNotification) {
+////        print("device unlocked")
+//    }
+//    
+//    func didLockDevice(notification: NSNotification) {
+////        print("device locked")
+//    }
+//    
+//    func didReceiveOrientationEvent(notification: NSNotification) {
+////        print("received orientation event")
+//    }
+//    
+//    func didReceiveAccelerometerEvent(notification: NSNotification) {
+////        print("received acceleromter event")
+//    }
+//    
+//    func didReceivePoseChange(notification: NSNotification) {
+////        print("received pose change")
+//    }
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
