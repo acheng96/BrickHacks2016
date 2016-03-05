@@ -10,6 +10,8 @@
 		D1509D231C8B6B6C00360FA8 /* MyoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1509D221C8B6B6C00360FA8 /* MyoKit.framework */; };
 		D1509D281C8B6D4E00360FA8 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1509D271C8B6D4E00360FA8 /* CoreBluetooth.framework */; };
 		D1509D2A1C8B6D5600360FA8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1509D291C8B6D5600360FA8 /* SystemConfiguration.framework */; };
+		D1509D311C8B76FA00360FA8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1509D2F1C8B76FA00360FA8 /* HomeViewController.swift */; };
+		D1509D321C8B76FA00360FA8 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1509D301C8B76FA00360FA8 /* HomeViewController.xib */; };
 		D1DABAF71C8B5DF700E3E475 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DABAF61C8B5DF700E3E475 /* AppDelegate.swift */; };
 		D1DABAF91C8B5DF700E3E475 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DABAF81C8B5DF700E3E475 /* ViewController.swift */; };
 		D1DABAFC1C8B5DF700E3E475 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1DABAFA1C8B5DF700E3E475 /* Main.storyboard */; };
@@ -41,6 +43,8 @@
 		D1509D261C8B6C5600360FA8 /* BrickHacks2016-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BrickHacks2016-Bridging-Header.h"; sourceTree = "<group>"; };
 		D1509D271C8B6D4E00360FA8 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		D1509D291C8B6D5600360FA8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		D1509D2F1C8B76FA00360FA8 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		D1509D301C8B76FA00360FA8 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		D1DABAF31C8B5DF700E3E475 /* BrickHacks2016.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrickHacks2016.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1DABAF61C8B5DF700E3E475 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1DABAF81C8B5DF700E3E475 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +109,15 @@
 			path = BrickHacks2016;
 			sourceTree = "<group>";
 		};
+		D1509D331C8B76FE00360FA8 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D1509D2F1C8B76FA00360FA8 /* HomeViewController.swift */,
+				D1509D301C8B76FA00360FA8 /* HomeViewController.xib */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
 		D1DABAEA1C8B5DF600E3E475 = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +145,7 @@
 				D1509D261C8B6C5600360FA8 /* BrickHacks2016-Bridging-Header.h */,
 				D1DABAF61C8B5DF700E3E475 /* AppDelegate.swift */,
 				D1DABAF81C8B5DF700E3E475 /* ViewController.swift */,
+				D1509D331C8B76FE00360FA8 /* View Controllers */,
 				D1DABAFA1C8B5DF700E3E475 /* Main.storyboard */,
 				D1509D241C8B6B7800360FA8 /* Resources */,
 			);
@@ -268,6 +282,7 @@
 				D1DABB011C8B5DF700E3E475 /* LaunchScreen.storyboard in Resources */,
 				D1DABAFE1C8B5DF700E3E475 /* Assets.xcassets in Resources */,
 				D1DABAFC1C8B5DF700E3E475 /* Main.storyboard in Resources */,
+				D1509D321C8B76FA00360FA8 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +309,7 @@
 			files = (
 				D1DABAF91C8B5DF700E3E475 /* ViewController.swift in Sources */,
 				D1DABAF71C8B5DF700E3E475 /* AppDelegate.swift in Sources */,
+				D1509D311C8B76FA00360FA8 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
