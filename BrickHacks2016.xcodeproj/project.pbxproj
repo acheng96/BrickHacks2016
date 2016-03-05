@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D1509D231C8B6B6C00360FA8 /* MyoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1509D221C8B6B6C00360FA8 /* MyoKit.framework */; };
+		D1509D281C8B6D4E00360FA8 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1509D271C8B6D4E00360FA8 /* CoreBluetooth.framework */; };
+		D1509D2A1C8B6D5600360FA8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1509D291C8B6D5600360FA8 /* SystemConfiguration.framework */; };
 		D1DABAF71C8B5DF700E3E475 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DABAF61C8B5DF700E3E475 /* AppDelegate.swift */; };
 		D1DABAF91C8B5DF700E3E475 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DABAF81C8B5DF700E3E475 /* ViewController.swift */; };
 		D1DABAFC1C8B5DF700E3E475 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1DABAFA1C8B5DF700E3E475 /* Main.storyboard */; };
@@ -34,6 +37,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D1509D221C8B6B6C00360FA8 /* MyoKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MyoKit.framework; sourceTree = "<group>"; };
+		D1509D261C8B6C5600360FA8 /* BrickHacks2016-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BrickHacks2016-Bridging-Header.h"; sourceTree = "<group>"; };
+		D1509D271C8B6D4E00360FA8 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		D1509D291C8B6D5600360FA8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D1DABAF31C8B5DF700E3E475 /* BrickHacks2016.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrickHacks2016.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1DABAF61C8B5DF700E3E475 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1DABAF81C8B5DF700E3E475 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +61,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1509D2A1C8B6D5600360FA8 /* SystemConfiguration.framework in Frameworks */,
+				D1509D281C8B6D4E00360FA8 /* CoreBluetooth.framework in Frameworks */,
+				D1509D231C8B6B6C00360FA8 /* MyoKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,10 +84,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D1509D241C8B6B7800360FA8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D1DABAFD1C8B5DF700E3E475 /* Assets.xcassets */,
+				D1DABAFF1C8B5DF700E3E475 /* LaunchScreen.storyboard */,
+				D1DABB021C8B5DF700E3E475 /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		D1509D251C8B6B8B00360FA8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D1509D291C8B6D5600360FA8 /* SystemConfiguration.framework */,
+				D1509D271C8B6D4E00360FA8 /* CoreBluetooth.framework */,
+				D1509D221C8B6B6C00360FA8 /* MyoKit.framework */,
+			);
+			name = Frameworks;
+			path = BrickHacks2016;
+			sourceTree = "<group>";
+		};
 		D1DABAEA1C8B5DF600E3E475 = {
 			isa = PBXGroup;
 			children = (
 				D1DABAF51C8B5DF700E3E475 /* BrickHacks2016 */,
+				D1509D251C8B6B8B00360FA8 /* Frameworks */,
 				D1DABB0A1C8B5DF700E3E475 /* BrickHacks2016Tests */,
 				D1DABB151C8B5DF700E3E475 /* BrickHacks2016UITests */,
 				D1DABAF41C8B5DF700E3E475 /* Products */,
@@ -97,12 +129,11 @@
 		D1DABAF51C8B5DF700E3E475 /* BrickHacks2016 */ = {
 			isa = PBXGroup;
 			children = (
+				D1509D261C8B6C5600360FA8 /* BrickHacks2016-Bridging-Header.h */,
 				D1DABAF61C8B5DF700E3E475 /* AppDelegate.swift */,
 				D1DABAF81C8B5DF700E3E475 /* ViewController.swift */,
 				D1DABAFA1C8B5DF700E3E475 /* Main.storyboard */,
-				D1DABAFD1C8B5DF700E3E475 /* Assets.xcassets */,
-				D1DABAFF1C8B5DF700E3E475 /* LaunchScreen.storyboard */,
-				D1DABB021C8B5DF700E3E475 /* Info.plist */,
+				D1509D241C8B6B7800360FA8 /* Resources */,
 			);
 			path = BrickHacks2016;
 			sourceTree = "<group>";
@@ -193,6 +224,11 @@
 				TargetAttributes = {
 					D1DABAF21C8B5DF700E3E475 = {
 						CreatedOnToolsVersion = 7.2.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					D1DABB061C8B5DF700E3E475 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -352,6 +388,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "BrickHacks2016/BrickHacks2016-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -390,6 +427,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "BrickHacks2016/BrickHacks2016-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -399,6 +437,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/BrickHacks2016",
+				);
 				INFOPLIST_FILE = BrickHacks2016/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BrickHacks.BrickHacks2016;
@@ -410,6 +453,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/BrickHacks2016",
+				);
 				INFOPLIST_FILE = BrickHacks2016/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BrickHacks.BrickHacks2016;
@@ -484,6 +532,7 @@
 				D1DABB1D1C8B5DF700E3E475 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D1DABB1E1C8B5DF700E3E475 /* Build configuration list for PBXNativeTarget "BrickHacks2016Tests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +541,7 @@
 				D1DABB201C8B5DF700E3E475 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D1DABB211C8B5DF700E3E475 /* Build configuration list for PBXNativeTarget "BrickHacks2016UITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +550,7 @@
 				D1DABB231C8B5DF700E3E475 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

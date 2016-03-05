@@ -13,9 +13,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        TLMHub.sharedHub() // Set up Myo shared hub
+        TLMHub.sharedHub().shouldNotifyInBackground = true // Enable events in the background
+        TLMHub.sharedHub().shouldSendUsageData = false // Prevent data from being sent to Thalmic Labs
+        
+        // Allow user to connect Myo armband if not already connected
+        let settingsVC = TLMSettingsViewController()
+        let navController = UINavigationController(rootViewController: settingsVC)
+        
+        // Set up main window
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        window!.makeKeyAndVisible()
+        window?.rootViewController = navController
+        
         return true
     }
 
