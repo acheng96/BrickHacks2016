@@ -14,6 +14,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var actionLabel: UILabel!
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var secondView: UIImageView!
     @IBOutlet weak var goBackButton: UIButton!
     
     @IBAction func goBackButtonPressed(sender: UIButton) {
