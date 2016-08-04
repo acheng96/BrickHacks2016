@@ -9,4 +9,4 @@ This iOS app uses the motion and gesture sensing of the Myo armband to detect pu
 In order to use PunchDetection create a path like:<br> 
 `export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/Users/ltang/Documents/BrickHacks2016/sdk/myo.framework`
 
-Reference: http://developerblog.myo.com/myo-unleashed-python/
+Myo Reference: http://developerblog.myo.com/myo-unleashed-python/
